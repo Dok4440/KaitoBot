@@ -22,6 +22,12 @@ class Miscellaneous(commands.Cog):
     async def invite(self, ctx):
       await ctx.send("₊˚✦`☕`⊹﹕invite me to your server with this link: https://tinyurl.com/invitekaitobot !<a:KB_bunWhack:816632384342196254>")
 
+    @commands.command(aliases=['docs'])
+    async def readme(self, ctx):
+        em = discord.Embed(title = "Documentation", description = "GitHub Repository: https://github.com/Dok4440/KaitoBot\nCommands list: https://github.com/Dok4440/KaitoBot/wiki/Command-List", color = 0xe4d3b3)
+
+        await ctx.send(embed = em)
+
      # open source
     @commands.command(aliases=['code', 'source'])
     async def opensource(self, ctx):
