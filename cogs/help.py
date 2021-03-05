@@ -84,6 +84,8 @@ class Help(commands.Cog):
         # no perms needed = no mention in de embed
         em.add_field(name ="Usage", value = "`,invite`")
 
+        await ctx.send(embed = em)
+
 
 # this is the end of the code, type all commands above this
 def setup(client):

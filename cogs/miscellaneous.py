@@ -1,5 +1,8 @@
 import discord
+from replit import db
 from discord.ext import commands
+from discord.ext.commands import Cog
+
 intents = discord.Intents.default()
 intents.members = True
 client = discord.Client(intents=intents)
@@ -20,7 +23,9 @@ class Miscellaneous(commands.Cog):
     # invite
     @commands.command(aliases=['inv'])
     async def invite(self, ctx):
-      await ctx.send("₊˚✦`☕`⊹﹕invite me to your server with this link: https://tinyurl.com/invitekaitobot !<a:KB_bunWhack:816632384342196254>")
+      em = discord.Embed(description = "₊˚✦`☕`⊹﹕[invite me to your server](https://tinyurl.com/kaitobot) <a:KB_bunWhack:816632384342196254>", color = 0xe4d3b3)
+
+      await ctx.send(embed = em)
 
     @commands.command(aliases=['docs'])
     async def readme(self, ctx):
@@ -48,12 +53,24 @@ class Miscellaneous(commands.Cog):
         await ctx.send(msg)
         await ctx.delete(ctx.message)
 		
-    #welcome msg
-    @commands.Cog.listener()
+    #greet msg
+    @Cog.listener()
     async def on_member_join(self, member):
-      guild = self.client.get_guild(816336230081888266)
-      channel = guild.get_channel(816336230081888269)
-      await channel.send(f'test')
+      msg = value = db["welcomeMsg"]
+      guild = value = db["welcomeMsgGuild"]
+      ch = value = db["welcomeMsgChannel"]
+
+      guild = self.client.get_guild(guild)
+      channel = guild.get_channel(ch)
+      await channel.send(msg)
+		
+    @commands.command()
+    @commands.has_permissions(manage_guild=True)
+    async def setGreetMsg(self, ctx, *, message):
+        db["welcomeMsg"] = message
+        db["welcomeMsgGuild"] = ctx.message.guild.id
+        db["welcomeMsgChannel"] = ctx.message.channel.id
+        await ctx.send("Welcome message has been added.")
 
 # this is the end of the code, type all mod commands above this
 def setup(client):

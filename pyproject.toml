@@ -7,6 +7,7 @@ authors = ["Flo 流動#0003, Dok#4440"]
 [tool.poetry.dependencies]
 python = "^3.8"
 discord = "^1.0.1"
+replit = "^2.0.0"
 
 [tool.poetry.dev-dependencies]
 
