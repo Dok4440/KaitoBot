@@ -52,37 +52,37 @@ class Help(commands.Cog):
       await ctx.send(embed = em)
     
 # doki did smort thing ^ oooo very smort indeed
+# help commands for single commands
 
-    # # help command KICK
-    # @help.command(aliases = ['k'])
-    # async def kick(self, ctx):
-    #   em = discord.Embed(title = "`,kick` / `,k`", description = "Kicks a member of the server.", color = 0xe4d3b3)
-    #   em.add_field(name = "Permissions", value = "KickMembers Permission")
-    #   em.add_field(name = "Usage", value = ",kick <user> {reason}")
+    @help.command()
+    async def kick(self, ctx):
+      em = discord.Embed(title = "`,kick` / `,k`", description = "Kicks a member of the server.", color = 0xe4d3b3)
+      em.add_field(name = "Permissions", value = "KickMembers Permission", inline=False)
+      em.add_field(name = "Usage", value = "`,kick <user> {reason}`")
 
-    #   await ctx.send(embed = em)
+      await ctx.send(embed = em)
 
-    #  @help.command()
-    #  async def ping(self, ctx):
-    #      em = discord.Embed(title = "``,ping`", description = "Displays Kaito's currect latency.", color = 0xe4d3b3)
-    #      # no perms needed = no mention in the embed
-    #      em.add_field(name = "Usage", value = ",ping")
+    @help.command()
+    async def ping(self, ctx):
+        em = discord.Embed(title = "``,ping`", description = "Displays Kaito's currect latency.", color = 0xe4d3b3)
+         # no perms needed = no mention in the embed
+        em.add_field(name = "Usage", value = "`,ping`")
 
-    #      await ctx.send(embed = em)
+        await ctx.send(embed = em)
 
-    # @help.command(aliases=['av, pfp, profilepic'])
-    # async def avatar(self, ctx):
-    #     em = discord.Embed(title = "`,avatar` / `,av` / `,pfp` / `profilepic`", description = "Displays your avatar, provide a @Mention to get someone else's avatar.", color = 0xe4d3b3)
-    #     # no perms needed = no mention in the embed
-    #     em.add_field(name = "Usage", value = ",avatar or ,av @Someone")
+    @help.command()
+    async def avatar(self, ctx):
+        em = discord.Embed(title = "`,avatar` / `,av`", description = "Displays your avatar, provide a @Mention to get someone else's avatar.", color = 0xe4d3b3)
+        # no perms needed = no mention in the embed
+        em.add_field(name = "Usage", value = "`,avatar` or `,av @Someone`")
 
-    #     await ctx.send(embed = em)
+        await ctx.send(embed = em)
 
-    # @help.command()
-    # async def invite(self, ctx):
-    #     em =discord.Embed(title = "`,invite`", description = "Give Kaito's link to invite it to your server.", color = 0xe4d3b3)
-    #     # no perms needed = no mention in de embed
-    #     em.add_field(name ="Usage", value = ",invite")
+    @help.command()
+    async def invite(self, ctx):
+        em =discord.Embed(title = "`,invite`", description = "Give Kaito's link to invite it to your server.", color = 0xe4d3b3)
+        # no perms needed = no mention in de embed
+        em.add_field(name ="Usage", value = "`,invite`")
 
 
 # this is the end of the code, type all commands above this
