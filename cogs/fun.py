@@ -16,7 +16,7 @@ class Fun(commands.Cog):
     async def hug(self, ctx, user: discord.User, *, Notes=None):
          em = discord.Embed(title = f"୨୧・`🍰`・A hug for {user.name}! so cute! ー ✦", description=None,  color = 0xe4d3b3)
 
-         hug_gifs = ["https://i.pinimg.com/originals/f2/80/5f/f2805f274471676c96aff2bc9fbedd70.gif", "https://i.imgur.com/mTAF7zA.gif", "https://media.tenor.com/images/b6d0903e0d54e05bb993f2eb78b39778/tenor.gif", "https://i.pinimg.com/originals/e2/c9/7a/e2c97a3b7a1ac0ec5bcecc0c18c61209.gif", "https://i.imgur.com/uXNQv1t.gif",  "https://i.pinimg.com/originals/9f/b8/ad/9fb8add5d9a2abe060cafcd211e1b8d5.gif"]
+         hug_gifs = ["https://i.pinimg.com/originals/f2/80/5f/f2805f274471676c96aff2bc9fbedd70.gif", "https://i.imgur.com/mTAF7zA.gif", "https://media.tenor.com/images/b6d0903e0d54e05bb993f2eb78b39778/tenor.gif", "https://i.pinimg.com/originals/e2/c9/7a/e2c97a3b7a1ac0ec5bcecc0c18c61209.gif", "https://i.imgur.com/uXNQv1t.gif",  "https://i.pinimg.com/originals/9f/b8/ad/9fb8add5d9a2abe060cafcd211e1b8d5.gif", "https://i.imgur.com/r9aU2xv.gif?noredirect", "https://i.imgur.com/BPLqSJC.gif", "https://i.imgur.com/XEs1SWQ.gif", "https://data.whicdn.com/images/244565418/original.gif", "https://i.imgur.com/7VsEllT.gif", "https://i.imgur.com/hpddahS.gif"]
 
          em.set_image(url=random.choice(hug_gifs))
          em.set_footer(text = ("✦・(You guys are adorable...)"))
@@ -29,7 +29,7 @@ class Fun(commands.Cog):
     async def kiss(self, ctx, user: discord.User, *, Notes=None):
          em = discord.Embed(title = f"୨୧・`🍓`・A kiss for {user.name}! so cute! ー ✦", description=None,  color = 0xe4d3b3)
 
-         kiss_gifs = ["https://i.pinimg.com/originals/e3/4e/31/e34e31123f8f35d5c771a2d6a70bef52.gif", "https://i.pinimg.com/originals/fe/6f/a7/fe6fa711ed29f18387c5da9800436062.gif", "https://i.pinimg.com/originals/44/74/7e/44747e448d7c150e95bbecb5c378bb35.gif", "https://i.imgur.com/WVSwvm6.gif", "https://i.imgur.com/OE7lSSY.gif"]
+         kiss_gifs = ["https://i.pinimg.com/originals/e3/4e/31/e34e31123f8f35d5c771a2d6a70bef52.gif", "https://i.pinimg.com/originals/fe/6f/a7/fe6fa711ed29f18387c5da9800436062.gif", "https://i.pinimg.com/originals/44/74/7e/44747e448d7c150e95bbecb5c378bb35.gif", "https://i.imgur.com/WVSwvm6.gif", "https://i.imgur.com/OE7lSSY.gif", "https://i.imgur.com/eisk88U.gif", "https://i.imgur.com/0WWWvat.gif", "https://i.imgur.com/MGdlYsj.gif", "https://i.imgur.com/IgGumrf.gif"]
 
          em.set_image(url=random.choice(kiss_gifs))
          em.set_footer(text = ("✦・(I ship it...)"))

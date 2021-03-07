@@ -14,7 +14,7 @@ class Moderation(commands.Cog):
     @commands.bot_has_permissions(kick_members=True) # check if the bot has kick perms
     async def kick(self, ctx, user: discord.Member, *, reason=None):
        await ctx.guild.kick(user, reason=reason)
-       em = discord.Embed(title = f"> __**Kick !!**__", description = f"╭ ₊˚`🍓`ฅ︰**{user.name}** was kicked. ꒷꒦\n┊₊˚୨`☕`ɞ﹒**reason:** {reason}. ꒷꒦\n╰ฅ`🍰`๑︰**Moderator:** {ctx.author.display_name}. ꒷꒦",  color = 0xe4d3b3)
+       em = discord.Embed(title = f"✦ ー __**Kick !!**__", description = f"╭ ₊˚`🍓`ฅ︰**{user.name}** was kicked. ꒷꒦\n┊₊˚୨`☕`ɞ﹒**reason:** {reason}. ꒷꒦\n╰ฅ`🍰`๑︰**Moderator:** {ctx.author.display_name}. ꒷꒦",  color = 0xe4d3b3)
        await ctx.send(embed = em)
        await ctx.message.delete()
     # @kick.error()
@@ -26,11 +26,12 @@ class Moderation(commands.Cog):
     @commands.has_permissions(ban_members=True)
     @commands.bot_has_permissions(ban_members=True)
     async def ban(self, ctx, id: int, *, reason=" - "):
-        user = await self.client.fetch_user(id)
-        actualReason = ctx.author.name + " | " + str(reason)
-        await ctx.guild.ban(user, reason=actualReason)
-        await ctx.send(f"> __**Ban !!**__\n╭ ₊˚`🍓`ฅ︰**{user.name}** was banned. ꒷꒦\n┊₊˚୨`☕`ɞ﹒**reason:** {reason}. ꒷꒦\n╰ฅ`🍰`๑︰**Moderator:** {ctx.author.display_name}. ꒷꒦")
-        await ctx.message.delete()
+         user = await self.client.fetch_user(id)
+         actualReason = ctx.author.name + " | " + str(reason)
+         await ctx.guild.unban(user, reason=reason)
+         em = discord.Embed(title = f"✦ ー __**Unban !!**__", description = f"╭ ₊˚`🍓`ฅ︰**{user.name}** was banned. ꒷꒦\n┊₊˚୨`☕`ɞ﹒**User ID:** {user.ID} ꒷꒦\n╰ฅ`🍰`๑︰**Moderator:** {ctx.author.display_name}. ꒷꒦",  color = 0xe4d3b3)
+         await ctx.send(embed = em)
+         await ctx.message.delete()
         
     # unban command
     @commands.command()
