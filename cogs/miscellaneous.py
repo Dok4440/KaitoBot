@@ -1,7 +1,5 @@
 import discord
-from replit import db
 from discord.ext import commands
-from discord.ext.commands import Cog
 
 intents = discord.Intents.default()
 intents.members = True
@@ -52,6 +50,17 @@ class Miscellaneous(commands.Cog):
     async def say(self, ctx, *, msg="₊˚✦`☕`⊹﹕please provide text for me to say!・꒷꒦"):
         await ctx.send(msg)
         await ctx.message.delete()
+		
+    # server count command
+    @commands.command()
+    async def stats(self, ctx):
+        em = discord.Embed(color = 0xe4d3b3)
+        em.set_author(name="KaitoBot v1.00.0", icon_url = "https://cdn.discordapp.com/avatars/817075893099823166/622a5e9609e2d280434d19373816ed07.png?size=128")
+        em.add_field(name="Authors", value="Dok4440\nflo0003")
+        # em.add_field(name="Uptime", value=f"{self.client.uptime}", inline=False)
+        em.add_field(name="Server count", value = f"{str(len(self.client.guilds))}")
+
+        await ctx.send(embed = em)
 		
     #greet msg
     # @Cog.listener()

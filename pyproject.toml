@@ -8,6 +8,7 @@ authors = ["Flo 流動#0003, Dok#4440"]
 python = "^3.8"
 discord = "^1.0.1"
 replit = "^2.0.0"
+loguru = "^0.5.3"
 
 [tool.poetry.dev-dependencies]
 
