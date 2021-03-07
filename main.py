@@ -1,8 +1,7 @@
 import discord
 import os
 import logging
-from discord.ext import commands  # u are actually seksi did u know that????
-from discord.ext import tasks
+from discord.ext import commands
 
 intents = discord.Intents.default()
 intents.members = True
@@ -29,6 +28,4 @@ for filename in os.listdir('./cogs'):
 		client.load_extension(f'cogs.{filename[:-3]}')
 
 client.run(os.getenv('TOKEN'))
-client.run(defaultstuff.config()["token"]) # DONT REMOVE THIS LINE PLS TY (it won't break the bot, rather save my fucking ass tryna host this on VPS)
-
 # "if i delete this, the red line goes away" *deletes 2 lines of code* -dok
