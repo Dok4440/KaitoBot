@@ -51,26 +51,28 @@ class Miscellaneous(commands.Cog):
     @commands.command(aliases=['repeat', 'speak'])
     async def say(self, ctx, *, msg="₊˚✦`☕`⊹﹕please provide text for me to say!・꒷꒦"):
         await ctx.send(msg)
-        await ctx.delete(ctx.message)
+        await ctx.message.delete()
 		
     #greet msg
-    @Cog.listener()
-    async def on_member_join(self, member):
-      msg = value = db["welcomeMsg"]
-      guild = value = db["welcomeMsgGuild"]
-      ch = value = db["welcomeMsgChannel"]
+    # @Cog.listener()
+    # async def on_member_join(self, member):
+    #   msg = value = db["welcomeMsg"]
+    #   guild = value = db["welcomeMsgGuild"]
+    #   ch = value = db["welcomeMsgChannel"]
 
-      guild = self.client.get_guild(guild)
-      channel = guild.get_channel(ch)
-      await channel.send(msg)
+    #   guild = self.client.get_guild(guild)
+    #   channel = guild.get_channel(ch)
+    #   await channel.send(msg)
 		
-    @commands.command()
-    @commands.has_permissions(manage_guild=True)
-    async def setGreetMsg(self, ctx, *, message):
-        db["welcomeMsg"] = message
-        db["welcomeMsgGuild"] = ctx.message.guild.id
-        db["welcomeMsgChannel"] = ctx.message.channel.id
-        await ctx.send("Welcome message has been added.")
+    # @commands.command()
+    # @commands.has_permissions(manage_guild=True)
+    # async def setGreetMsg(self, ctx, *, message):
+    #     db["welcomeMsg"] = message
+    #     db["welcomeMsgGuild"] = ctx.message.guild.id
+    #     db["welcomeMsgChannel"] = ctx.message.channel.id
+    #     await ctx.send("Welcome message has been added.")
+
+    
 
 # this is the end of the code, type all mod commands above this
 def setup(client):
