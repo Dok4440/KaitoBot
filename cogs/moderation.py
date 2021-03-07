@@ -28,8 +28,8 @@ class Moderation(commands.Cog):
     async def ban(self, ctx, id: int, *, reason=" - "):
          user = await self.client.fetch_user(id)
          actualReason = ctx.author.name + " | " + str(reason)
-         await ctx.guild.unban(user, reason=reason)
-         em = discord.Embed(title = f"✦ ー __**Unban !!**__", description = f"╭ ₊˚`🍓`ฅ︰**{user.name}** was banned. ꒷꒦\n┊₊˚୨`☕`ɞ﹒**User ID:** {user.ID} ꒷꒦\n╰ฅ`🍰`๑︰**Moderator:** {ctx.author.display_name}. ꒷꒦",  color = 0xe4d3b3)
+         await ctx.guild.ban(user, reason=reason)
+         em = discord.Embed(title = f"✦ ー __**Ban !!**__", description = f"╭ ₊˚`🍓`ฅ︰**{user.name}** was kicked. ꒷꒦\n┊₊˚୨`☕`ɞ﹒**reason:** {reason}. ꒷꒦\n╰ฅ`🍰`๑︰**Moderator:** {ctx.author.display_name}. ꒷꒦",  color = 0xe4d3b3)
          await ctx.send(embed = em)
          await ctx.message.delete()
         

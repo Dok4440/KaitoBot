@@ -8,7 +8,7 @@ intents = discord.Intents.default()
 intents.members = True
 logging.basicConfig(level=logging.INFO)
 
-client = commands.Bot(command_prefix=",", intents=intents)
+client = commands.Bot(command_prefix="b,", intents=intents)
 
 client.remove_command("help")
 
