@@ -16,7 +16,7 @@ class Help(commands.Cog):
       em = discord.Embed(title = defaultstuff.texts()["helpEmbed1Title"], description = defaultstuff.texts()["helpEmbed1Descr"], color = 0xe4d3b3)
 
       em.set_footer(text = "https://repl.it/@flo0003 ˚⊹", icon_url = "https://i.imgur.com/GgeUjQv.png")
-      em.set_thumbnail(url = "https://media.discordapp.net/attachments/816336230081888269/817020579344416798/gf8HK6DDOea5rkAAAAASUVORK5CYII.png")
+      em.set_thumbnail(url = "https://media.discordapp.net/attachments/819245556182286356/819249053783162880/Untitled74_20210310164226.png")
 
       await ctx.send(embed = em)
 

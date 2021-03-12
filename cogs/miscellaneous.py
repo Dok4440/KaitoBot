@@ -55,10 +55,10 @@ class Miscellaneous(commands.Cog):
     @commands.command()
     async def stats(self, ctx):
         em = discord.Embed(color = 0xe4d3b3)
-        em.set_author(name="KaitoBot v1.00.0", icon_url = "https://cdn.discordapp.com/avatars/817075893099823166/622a5e9609e2d280434d19373816ed07.png?size=128")
-        em.add_field(name="Authors", value="Dok4440\nflo0003")
+        em.set_author(name="﹕☕・SheepieBot v1.00.0・✦", icon_url = "https://cdn.discordapp.com/avatars/817075893099823166/622e3a17df78f6faa775d460359cb3e1.webp?size=1024")
+        em.add_field(name="୨୧・authors", value="✦ー`Dok4440`\n✦ー`Flo0003`")
         # em.add_field(name="Uptime", value=f"{self.client.uptime}", inline=False)
-        em.add_field(name="Server count", value = f"{str(len(self.client.guilds))}")
+        em.add_field(name="୨୧・server count", value = f"✦ー`{str(len(self.client.guilds))}`")
 
         await ctx.send(embed = em)
 		

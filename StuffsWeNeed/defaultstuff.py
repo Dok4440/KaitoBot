@@ -14,4 +14,4 @@ def texts(filename: str = "texts"):
     except FileNotFoundError:
         raise FileNotFoundError("texts.json wasn't found")
 
-# im going to cry now :( -flo
+# im going to cry now :( -flofi

@@ -29,19 +29,22 @@ class Moderation(commands.Cog):
          user = await self.client.fetch_user(id)
          actualReason = ctx.author.name + " | " + str(reason)
          await ctx.guild.ban(user, reason=reason)
-         em = discord.Embed(title = f"✦ ー __**Ban !!**__", description = f"╭ ₊˚`🍓`ฅ︰**{user.name}** was kicked. ꒷꒦\n┊₊˚୨`☕`ɞ﹒**reason:** {reason}. ꒷꒦\n╰ฅ`🍰`๑︰**Moderator:** {ctx.author.display_name}. ꒷꒦",  color = 0xe4d3b3)
+         em = discord.Embed(title = f"✦ ー __**Ban !!**__", description = f"╭ ₊˚`🍓`ฅ︰**{user.name}** was banned. ꒷꒦\n┊₊˚୨`☕`ɞ﹒**reason:** {reason}. ꒷꒦\n╰ฅ`🍰`๑︰**Moderator:** {ctx.author.display_name}. ꒷꒦",  color = 0xe4d3b3)
          await ctx.send(embed = em)
          await ctx.message.delete()
         
-    # unban command
+    #ban command
     @commands.command()
     @commands.has_permissions(ban_members=True)
     @commands.bot_has_permissions(ban_members=True)
-    async def unban(self, ctx, id: int):
-        user = await self.client.fetch_user(id)
-        await ctx.guild.unban(user)
-        await ctx.send(f"> __**Unban !!**__\n╭ ₊˚`🍓`ฅ︰**{user.mention}** was unbanned. ꒷꒦\n┊₊˚୨`☕`ɞ﹒**user ID:** {user.ID} ꒷꒦\n╰ฅ`🍰`๑︰**Moderator:** {ctx.message.author.name}. ꒷꒦")
-        await ctx.message.delete()
+    async def unban(self, ctx, id: int, *, reason=" - "):
+         user = await self.client.fetch_user(id)
+         actualReason = ctx.author.name + " | " + str(reason)
+         await ctx.guild.ban(user, reason=reason)
+         em = discord.Embed(title = f"✦ ー __**Unban !!**__", description = f"╭ ₊˚`🍓`ฅ︰**{user.name}** was unbanned. ꒷꒦\n┊₊˚୨`☕`ɞ﹒**reason:** {reason}. ꒷꒦\n╰ฅ`🍰`๑︰**Moderator:** {ctx.author.display_name}. ꒷꒦",  color = 0xe4d3b3)
+         await ctx.send(embed = em)
+         await ctx.message.delete()
+        
 
 
 # this is the end of the code, type all mod commands above this
