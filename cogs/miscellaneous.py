@@ -1,9 +1,15 @@
 import discord
 from discord.ext import commands
+import pymongo
+from pymongo import MongoClient
+import os
 
 intents = discord.Intents.default()
 intents.members = True
 client = discord.Client(intents=intents)
+
+dbclient = MongoClient(os.getenv('RANDOM_FUCKING_STRING_ISTFG_IDC'))
+db = dbclient["KaitoBot"]
 
 class Miscellaneous(commands.Cog):
     def __init__(self, client):
@@ -61,25 +67,33 @@ class Miscellaneous(commands.Cog):
         em.add_field(name="୨୧・server count", value = f"✦ー`{str(len(self.client.guilds))}`")
 
         await ctx.send(embed = em)
-		
-    #greet msg
-    # @Cog.listener()
-    # async def on_member_join(self, member):
-    #   msg = value = db["welcomeMsg"]
-    #   guild = value = db["welcomeMsgGuild"]
-    #   ch = value = db["welcomeMsgChannel"]
 
-    #   guild = self.client.get_guild(guild)
-    #   channel = guild.get_channel(ch)
-    #   await channel.send(msg)
-		
-    # @commands.command()
-    # @commands.has_permissions(manage_guild=True)
-    # async def setGreetMsg(self, ctx, *, message):
-    #     db["welcomeMsg"] = message
-    #     db["welcomeMsgGuild"] = ctx.message.guild.id
-    #     db["welcomeMsgChannel"] = ctx.message.channel.id
-    #     await ctx.send("Welcome message has been added.")
+
+    @commands.Cog.listener()
+    async def on_member_join(self, member):
+      collection = db["Greetings"]
+      results = collection.find({"server_id": member.guild.id})
+
+      for result in results:
+        msg = result["message"]
+        guild = result["server_id"]
+        ch = result["channel_id"]
+
+      guild = self.client.get_guild(guild)
+      channel = guild.get_channel(ch)
+      await channel.send(msg)
+        
+    @commands.command()
+    @commands.has_permissions(manage_guild=True)
+    async def greetmsg(self, ctx, *, message):
+      collection = db["Greetings"]
+
+      post = {"server_id": ctx.message.guild.id, "message": message, "channel_id": ctx.message.channel.id}
+
+      collection.delete_many({"server_id": ctx.message.guild.id})
+      collection.insert_one(post) #magic 
+
+      await ctx.send("Welcome message has been set.")
 
     
 
